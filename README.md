@@ -22,3 +22,37 @@ Vox-Live is a high-performance monitoring interface designed to bridge the gap b
 ```bash
 git clone [https://github.com/abhishekbugata/vox-live.git](https://github.com/abhishekbugata/vox-live.git)
 cd vox-live
+2. Environment Configuration
+It is recommended to use a virtual environment to manage dependencies:
+
+Bash
+# Create a virtual environment
+python -m venv venv
+
+# Activate the environment
+# On Windows:
+.\venv\Scripts\activate
+# On Mac/Linux:
+source venv/bin/activate
+
+# Install required packages
+pip install -r requirements.txt
+3. Execution
+The application requires both the FastAPI backend and the Streamlit frontend to be running simultaneously.
+
+Step A: Start the Backend Server
+Open a terminal and set your API key as an environment variable:
+
+Bash
+# Windows (PowerShell)
+$env:GROQ_API_KEY="your_actual_groq_key_here"
+python backend/main.py
+
+# Mac/Linux or Git Bash
+export GROQ_API_KEY="your_actual_groq_key_here"
+python backend/main.py
+Step B: Start the Streamlit Dashboard
+Open a second terminal, activate the venv, and run:
+
+Bash
+streamlit run frontend/app.py
